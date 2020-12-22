@@ -1,13 +1,19 @@
 import {
-} from '../../elements/home'
+    ConceptContainer,
+    ConceptText,
+    ConceptPic
+} from '../../elements/home/conceptSec'
 import ceoImg from '../../Assets/Images/ceo.jpg';
 
 const ConceptSec  = () => {          
-return <div>
-    <div>
-        <div></div>
-        <img src={ceoImg} alt="CEO" />
-    <div>
+return <ConceptContainer>
+    <ConceptPic>
+        <div>
+            <img src={ceoImg} alt="CEO" />
+        </div>
+
+    </ConceptPic>        
+    <ConceptText>
         <h6>Concept</h6>
         <h1>But Tiny Homes are </h1><h1> not trailer homes.</h1>
         
@@ -17,9 +23,8 @@ return <div>
             Our vision is to create a solution for your accommodation as flexible as your lifestyle.
         </p>
 
-    </div>
+    </ConceptText>
 
-    </div>
-</div>;
+</ConceptContainer>;
 }
 export default ConceptSec;

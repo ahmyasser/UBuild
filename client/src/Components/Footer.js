@@ -9,41 +9,53 @@ SocialContainer
 import { AiFillFacebook, AiFillInstagram, AiFillYoutube } from 'react-icons/ai'
 
 const Footer  = () => {          
-    return <FooterContainer>
-    <div></div>
+    return <>
+    <FooterContainer>
+    
     <ArticleContainer>
-        <h1>Tiny Homes On Wheels</h1>
+        <div>
+        <b>Tiny Homes <br/> On Wheels</b>
         <p>
             THOW is a platform to customize & 
             buy modular home on the internet.
             We are the source of all things modular homes.
         </p>
+        </div>
     </ArticleContainer>
-
+    <div className="footerRight">
+    <div className="footerLinks">
     <LinksContainer>
         <div>
-            <b>About Us</b>
+            <p>About Us</p>
             <Link to="/">Our story</Link>
             <Link to="/">Locations</Link>
             <Link to="/">Contact Us</Link>
         </div>
         <div>
-            <b>Policies</b>
+            <p>Policies</p>
             <Link to="/">Privacy policy</Link>
             <Link to="/">Terms & conditions</Link>
             <Link to="/">Information & warranty</Link>
         </div>
+    
     </LinksContainer>
     <SocialContainer>   
         <div>
-            <b>Our Social media:</b>
+            <p>Our Social media:</p>
             <div>
-                <AiFillFacebook size={30} />
-                <AiFillInstagram size={30} />
-                <AiFillYoutube size={30} />
+                <AiFillFacebook size={33} />
+                <AiFillInstagram size={33} />
+                <AiFillYoutube size={33} />
             </div>
         </div>
     </SocialContainer>
-</FooterContainer> ;
+    </div>
+    <div className="copyright">
+        <p>Tiny Homes On Wheels, All Rights Reserved 2020</p>
+    </div>
+</div>
+</FooterContainer> 
+</>
+;
 }
 export default Footer;

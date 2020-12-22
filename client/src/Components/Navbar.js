@@ -23,7 +23,7 @@ const [displayDropDown, setDisplayDropDown] = useState(false)
         <HeaderContainer Home>
             
             <HeaderLeft Home className="header-left"> 
-                <Link onClick={()=>setDisplayDropDown(!displayDropDown)} to="">
+                <Link onClick={()=>setDisplayDropDown(!displayDropDown)} to="#">
                     <HiOutlineDotsHorizontal size={40}/>
                 </Link>  
             </HeaderLeft>

@@ -2,7 +2,8 @@
 import {
     ImageSecContainer, 
     ImageSecContent,
-    } from '../../elements/home'
+    ButtonContainer
+    } from '../../elements/home/imageSec'
     
 
 const ImageSec  = () => {          
@@ -10,11 +11,13 @@ const ImageSec  = () => {
     <ImageSecContainer>
     <ImageSecContent>
             <div>
-            <p className="highlight">Tiny but mighty homes,</p>
+            <p> <span className="highlight"> Tiny but mighty homes,</span></p>
             <p>ready to settle anywhere.</p>
             </div>
-            <small>Get a fully prefab home or ADU, Fully turn-key service. Starting at $30,000.</small>
+            <small className="highlight">Get a fully prefab home or ADU, Fully turn-key service. Starting at $30,000.</small>
     </ImageSecContent>
+    <ButtonContainer ><button className="highlight">Build Your Home</button></ButtonContainer>
+
     </ImageSecContainer> 
     
     

@@ -9,7 +9,7 @@ import {Link,
 const DropDown  = () => {    
     
     return <DropDownContainer Home>
-        <Link to="">Our Story</Link>
+        <Link to="/story">Our Story</Link>
         <Link to="">Locations</Link>
         <Link to="">Contact us</Link>
     </DropDownContainer>
