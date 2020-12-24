@@ -7,14 +7,14 @@ HomeContainer
 import ImageSec from '../../Components/Home/ImageSec'
 import AboutSec from '../../Components/Home/AboutSec'
 import ConceptSec from '../../Components/Home/ConceptSec'
-import InspiredSec from '../../Components/Home/InspiredSec'
+import InspirationsSec from '../../Components/Home/InspirationsSec'
 
 const Home  = () => {          
     return <HomeContainer>
             <ImageSec/>
             <AboutSec/>
             <ConceptSec/>
-            <InspiredSec/>
+            <InspirationsSec/>
         </HomeContainer> ;
 }
 export default Home;

@@ -10,8 +10,8 @@ const DropDown  = () => {
     
     return <DropDownContainer Home>
         <Link to="/story">Our Story</Link>
-        <Link to="">Locations</Link>
-        <Link to="">Contact us</Link>
+        <Link to="/locations">Locations</Link>
+        <Link to="/contact">Contact us</Link>
     </DropDownContainer>
     ;
 }

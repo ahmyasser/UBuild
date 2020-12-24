@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 import * as color from './colors';
 
+import pinned from '../Assets/Images/pinned.png';
+
 
 export const StoryContainer = styled.section`
     width: 100%;
@@ -55,4 +57,19 @@ p {
    padding-top:14px
    }
 
+`
+
+export const Pinned = styled.div`
+z-index: 100;
+position: fixed;
+top:580px;
+left:1160px;
+background-image: url(${pinned});
+background-position: center;
+background-repeat: no-repeat; 
+background-size: cover;
+
+height:65px;
+width:180px;
+   
 `

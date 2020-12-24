@@ -3,11 +3,15 @@
 import {
     StoryContainer,
     Paragraph1,
-    Paragraph2
+    Paragraph2,
+    Pinned
 } from '../../elements/story'
 
+
 const Story  = () => {          
-    return( 
+    return(
+        <> 
+        <Pinned></Pinned>
 <StoryContainer>
     <div className="container">
         <Paragraph1>
@@ -53,6 +57,9 @@ const Story  = () => {
             </p>
 </Paragraph2>
     </div>
-</StoryContainer>) ;
+</StoryContainer>
+    
+    </>
+) ;
 }
 export default Story;

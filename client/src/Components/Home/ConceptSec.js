@@ -14,13 +14,17 @@ return <ConceptContainer>
 
     </ConceptPic>        
     <ConceptText>
-        <h6>Concept</h6>
-        <h1>But Tiny Homes are </h1><h1> not trailer homes.</h1>
+        <p className='title'>Concept</p>
+        <b>But Tiny Homes are <br/> not trailer homes.</b>
         
-        <p>
-            Our goal is to change the way we conceptualize our living space so that it does more for us than we currently imagine it to.
-            We aim to create the perfect space that is versatile, efficient, filled to the brim with modern luxuries and amenities, and suited for everyday living or travel. 
-            Our vision is to create a solution for your accommodation as flexible as your lifestyle.
+        <p className='content'>
+            Our goal is to change the way we conceptualize our living <br/>
+            space so that it does more for us than we currently imagine<br/> it to.
+            We aim to create the perfect space that is versatile,<br/>
+             efficient, filled to the brim with modern luxuries and amenities,<br/>
+              and suited for everyday living or travel. 
+            Our vision is to create a <br/>
+            solution for your accommodation as flexible as your lifestyle.
         </p>
 
     </ConceptText>

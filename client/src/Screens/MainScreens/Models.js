@@ -1,9 +1,6 @@
-//import {Link} from 'react-router-dom';
 
+  const Models  = () => {          
+    return <h1>hi</h1>; 
 
-const Models  = () => {          
-    return <div>
-<h1>Models</h1>
-    </div> ;
 }
-export default Models;
+export default Models; 
