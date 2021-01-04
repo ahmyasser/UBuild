@@ -1,26 +1,31 @@
-//import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import {
     ImageSecContainer, 
     ImageSecContent,
     ButtonContainer
-    } from '../../elements/home/imageSec'
+    } from '../../elements/screens/mainScreens/home/imageSec'
     
 
 const ImageSec  = () => {          
-    return <div>
+    return (
     <ImageSecContainer>
-    <ImageSecContent>
+      <ImageSecContent>
             <div>
-            <p> <span className="highlight"> Tiny but mighty homes,</span><br/>
-                ready to settle anywhere.</p>
+                <p> 
+                    <span className="highlight"> Tiny but mighty homes,</span><br/>
+                    ready to settle anywhere.
+                </p>
             </div>
-            <small className="highlight">Get a fully prefab home or ADU, Fully turn-key service. Starting at $30,000.</small>
-    </ImageSecContent>
-    <ButtonContainer ><button className="highlight">Build Your Home</button></ButtonContainer>
+            <small className="highlight">
+                Get a fully prefab home or ADU, Fully turn-key service. Starting at $30,000.
+            </small>
+        </ImageSecContent>
+        
+        <ButtonContainer >
+            <Link to="/models" className="highlight">Build Your Home</Link>
+        </ButtonContainer>
+    </ImageSecContainer>
 
-    </ImageSecContainer> 
-    
-    
-    </div>;
+);
 }
 export default ImageSec;

@@ -1,6 +1,6 @@
 import {
     AboutContainer
-    } from '../../elements/home/aboutSec'
+    } from '../../elements/screens/mainScreens/home/aboutSec'
     
 
 const AboutSec  = () => {          
@@ -12,7 +12,7 @@ const AboutSec  = () => {
                 <div className="border">
                     <div className="border">
                         <b>Imagine a space that is impeccably designed 
-                            <br/>and optimized with everything you need</b>
+                            and optimized with everything you need</b>
                         <div>
                             <p>
                                 For us, Tiny Homes is a way into the future. For you, it may be a temporary solution,<br/>

@@ -2,7 +2,7 @@
 
 import {
 HomeContainer
-} from '../../elements/home/home'
+} from '../../elements/screens/mainScreens/home/home'
 
 import ImageSec from '../../Components/Home/ImageSec'
 import AboutSec from '../../Components/Home/AboutSec'

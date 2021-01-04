@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {
     ContactContainer
-    } from '../../elements/contact';
+    } from '../../elements/screens/secondaryScreens/contact';
 
 const Contact  = () => {          
 
@@ -9,9 +9,10 @@ const [name,setName] = useState("")
 const [email,setEmail] = useState("")
 const [subject,setSubject] = useState("")
 const [message,setMessage] = useState("")
+const [success,setSuccess] = useState(false)
 
 return <>
-<ContactContainer>
+<ContactContainer Success={success}>
     <div className='container'>
     <div className='title'>
         <p>Got a Question? We are here to help !</p>
@@ -46,12 +47,17 @@ return <>
       onChange={(e)=>setMessage(e.target.value)}
       />
       
+    
+    
     </form>
-    <div className='action'>
-    <button className="btn waves-effect waves-light #64b5f6 blue darken-1"
-      onClick={()=>{/*signup(dispatch,email,subject,name)*/console.log(email);}}
-      ></button>
+    
     </div>
+    <div  className='actionContainer'>
+
+    <button onClick={()=>{/*signup(dispatch,email,subject,name)*/ setSuccess(!success);}}
+      >Send</button>
+    
+    <p>Message Successfully Sent!</p>
     </div>
 </ContactContainer>
     </> ;

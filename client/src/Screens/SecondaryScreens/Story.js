@@ -5,7 +5,7 @@ import {
     Paragraph1,
     Paragraph2,
     Pinned
-} from '../../elements/story'
+} from '../../elements/screens/secondaryScreens/story'
 
 
 const Story  = () => {          

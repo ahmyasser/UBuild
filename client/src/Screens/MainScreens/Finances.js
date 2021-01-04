@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 
 import {
     FinancesContainer
-    } from '../../elements/finances';
+    } from '../../elements/screens/mainScreens/finances';
     import powerPay from '../../Assets/Images/powerPay.png';
     import hearth from '../../Assets/Images/hearth.png';
     import century from '../../Assets/Images/century.png';
