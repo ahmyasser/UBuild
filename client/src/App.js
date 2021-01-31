@@ -24,7 +24,7 @@ function App() {
     <Route path="/Contact" component={Contact}/>    
 
 
-    <Route path="/costumize/" component={Costumize}/>
+    <Route path="/customize" component={Costumize}/>
     <Route path="/Models" component={Models}/>    
     <Route path="/Summary" component={Summary}/>    
     <Route path="/Models" component={Models}/>    

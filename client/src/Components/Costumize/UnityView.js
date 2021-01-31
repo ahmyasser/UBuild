@@ -3,13 +3,13 @@ import Unity, { UnityContext } from "react-unity-webgl";
 
 import { UnityContainer } from '../../elements/screens/mainScreens/costumize/costumize'
 
-const loader= './Build/Test2.loader.js'
+const loader= './Build/28FT.loader.js'
 
 const unityContext = new UnityContext({
   loaderUrl: loader,
-  dataUrl: "./Build/Test2.data",
-  frameworkUrl: "./Build/Test2.framework.js",
-  codeUrl: "./Build/Test2.wasm",
+  dataUrl: "./Build/28FT.data",
+  frameworkUrl: "./Build/28FT.framework.js",
+  codeUrl: "./Build/28FT.wasm",
   streamingAssetsUrl: "StreamingAssets",
   companyName: "DefaultCompany",
   productName: "TinyHome",
@@ -19,7 +19,13 @@ const unityContext = new UnityContext({
 
 
 
-
+const onClick = ()=> {
+  unityContext.send(
+    'Canvas',
+     'ChangeAppearance',
+      '{"itemType":"Interior Walls","itemID":"123","material":"Timeless"}'
+  );
+}
 
 function UnityView() {
 
@@ -32,10 +38,11 @@ function UnityView() {
   
   return (
     <UnityContainer>
+      <button onClick={()=>onClick()}>Interior Walls</button>
       { (progression<1)&& `Loading ${ Math.floor(progression * 100)} percent...`}
       
       
-     <Unity unityContext={unityContext} width='100%' height='73vh' className="my-unity-app" />
+     <Unity unityContext={unityContext} width='100%' height='74vh' className="my-unity-app" />
      </UnityContainer>
   );
 }

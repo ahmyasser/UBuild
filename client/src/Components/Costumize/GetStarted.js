@@ -4,8 +4,11 @@ import {
   GetStartedContainer 
 } from "../../elements/screens/mainScreens/costumize/costumize";
 
-const GetStarted =() =>{
-  return (
+const GetStarted =({onClick}) =>{
+
+
+
+return (
           <GetStartedContainer>
             
             <div className="getStarted">
@@ -18,11 +21,14 @@ const GetStarted =() =>{
                   <Link to='#'>Luxury</Link>
                 </div>
                 <div className='types'>
-                  <Link to='#'>Kitchen</Link>
-                  <Link to='#'>Bathroom</Link>
-                  <Link to='#'>Interior</Link>
-                  <Link to='#'>Exterior</Link>
-                  <Link to='#'>Utility Packages</Link>
+                  <Link onClick={()=>onClick('kitchen')} to='#'>Kitchen</Link>
+                  <Link onClick={()=>onClick('Bathroom')} to='#'>Bathroom</Link>
+                  <Link onClick={()=>onClick('InteriorWalls')} to='#'>Interior</Link>
+                  <Link onClick={()=>onClick('Exterior')} to='#'>Exterior</Link>
+                  <Link onClick={()=>onClick('Flooring')} to='#'>Flooring</Link>
+                  <Link onClick={()=>onClick('Windows')} to='#'>Windows</Link>
+                  <Link onClick={()=>onClick('Utilities')} to='#'>Utility Packages</Link>
+                  <Link onClick={()=>onClick('KitchenCabinets')} to='#'>Kitchen Cabinets</Link>
                 </div>
               </div>
             </div>

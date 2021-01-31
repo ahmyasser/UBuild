@@ -1,8 +1,10 @@
-import React from "react";
-
+import React, {useState} from "react";
+import Axios from 'axios'
 import UnityView from "../../Components/Costumize/UnityView";
 import GetStarted from "../../Components/Costumize/GetStarted";
 import Customize from "../../Components/Costumize/Customize";
+import SummarySec from "../../Components/Costumize/SummarySec";
+
 
 import { 
   CostumizeContainer,
@@ -12,7 +14,14 @@ import {
 } from "../../elements/screens/mainScreens/costumize/costumize";
 
 function Costumize() {
-  return (
+
+  const [elements, setElements] = useState([]);
+  
+const onClick =async (category)=>{
+  const {data} = await Axios.get(`https://tinyhomes-fakeserver.herokuapp.com/${category}`)
+  setElements(data);  
+};
+return (
     <CostumizeContainer>
       <div className="wrapper">
         <Header>
@@ -23,11 +32,11 @@ function Costumize() {
         <MidSection>
           <UnityView/>          
           <CostumizeSection>
-          <GetStarted/>
-          <Customize />
-          </CostumizeSection>
+          <GetStarted onClick={onClick}/>
+          <Customize elements={elements} />
+          </CostumizeSection >
         </MidSection>
-      
+        <SummarySec/>
       </div>
      </CostumizeContainer>
 

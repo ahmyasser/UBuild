@@ -1,25 +1,31 @@
 import {Link} from 'react-router-dom';
+import { RiArrowDropRightLine } from 'react-icons/ri'
 
 import { 
   CustomizeContainer 
 } from "../../elements/screens/mainScreens/costumize/costumize";
 
-const Customize =() =>{
+const Customize =({elements}) =>{
+
+  const renderData=()=> {
+    return elements.map((element) => {
+       return (
+        <Link to='#'key={element.id}>{element.title} 
+                    <RiArrowDropRightLine size={40}/>
+        </Link>
+    
+       )
+    })
+ }
+
   return (
           <CustomizeContainer>
             
               
-              <p className='title'> Customize</p>
+          { elements.length>0 && <p className='title'> Customize</p>}
               <div className="Customize">
-                  <Link to='#'>Economic</Link>
-                  <Link to='#'>Standard</Link>
-                  <Link to='#'>Luxury</Link>
-                  <Link to='#'>Kitchen</Link>
-                  <Link to='#'>Bathroom</Link>
-                  <Link to='#'>Interior</Link>
-                  <Link to='#'>Exterior</Link>
-                  <Link to='#'>Utility Packages</Link>
-                  </div>
+                {renderData()}
+              </div>
             
             
           </CustomizeContainer>

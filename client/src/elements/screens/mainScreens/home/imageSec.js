@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import * as color from '../../../common/colors';
 
-import imgsec from '../../../../Assets/Images/car.jpg'
+import imgsec from '../../../../Assets/Images/landing.png'
 
 export const ImageSecContainer = styled.section`
 width: 100%;
@@ -40,7 +40,6 @@ export const ImageSecContent = styled.div`
 
 `
 export const ButtonContainer = styled.div`
-
     position: absolute;
     top: 43em;
     left:50%;
@@ -51,10 +50,12 @@ export const ButtonContainer = styled.div`
         padding:20px 25px;
         line-height:4;
         border-radius: 0.5em;
+
     }
     a: hover {
-        border-radius: 1em;
-        padding:25px 30px;
+        border-radius: 0.3em;
+        padding:22px 27px;
+
     }
 
 `

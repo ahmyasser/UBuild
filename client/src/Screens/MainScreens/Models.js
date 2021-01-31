@@ -5,29 +5,33 @@ import {
   ModelsContainer
   
 } from '../../elements/screens/mainScreens/models';
-
+import {useEffect, useState} from 'react';
+import Axios from "axios";
 import ModelCard from '../../Components/Cards/ModelCard';
-import Img1 from '../../Assets/Images/model1.png';
-import Img2 from '../../Assets/Images/model2.png';
 const Models= ()=>{
 
-  const obj1={
-    id:'ksdsaofma12332',
-    image: Img1,
-    name: 'Affordable Fran',
-    category:'Economic',
-    price:7600
-  };
-  
-  const obj2={
-    id:'ksdsaofma1',
-    image: Img2,
-    name: 'Vegan Paradise',
-    category:'Luxury',
-    price:10600
-  };
+const [models, setModels] = useState([]);
 
-  return (
+const getModels = async () =>{
+  const {data} = await Axios.get(`https://tinyhomes-fakeserver.herokuapp.com/models`);
+  setModels(data)
+}
+
+
+useEffect(() => {
+  getModels();
+}, [])
+
+const renderData=()=> {
+  return models.map((model) => {
+     return (
+        <ModelCard obj={model} />
+      )
+  })
+}
+
+
+return (
   <>
   <ModelsScreenContainer>
     <div className='title'>
@@ -36,12 +40,7 @@ const Models= ()=>{
     </div>
     <ModelsContainer>
       <div className="wrapper">
-        <ModelCard obj={obj1} />
-        <ModelCard obj={obj2} />
-        <ModelCard obj={obj1} />
-        <ModelCard obj={obj2} />
-        <ModelCard obj={obj1} />
-        <ModelCard obj={obj2} />
+        {renderData()}
       </div>
     </ModelsContainer>
   
