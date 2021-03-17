@@ -17,7 +17,7 @@ const ImageSec  = () => {
                 </p>
             </div>
             <small className="highlight">
-                Get a fully prefab home or ADU, Fully turn-key service. Starting at $30,000.
+                Get a fully prefab home or ADU, Fully turn-key service. Starting at $38,500.
             </small>
         </ImageSecContent>
         

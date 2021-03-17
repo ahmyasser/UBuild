@@ -40,18 +40,20 @@ export const ImageSecContent = styled.div`
 
 `
 export const ButtonContainer = styled.div`
+    
     position: absolute;
     top: 43em;
     left:50%;
     transform: translate(-50%, -50%);
+    
     a {
         color: ${color.white};
         border: 2px solid red;
         padding:20px 25px;
         line-height:4;
         border-radius: 0.5em;
-
     }
+
     a: hover {
         border-radius: 0.3em;
         padding:22px 27px;

@@ -3,44 +3,44 @@ import styled from 'styled-components'
 import * as color from '../common/colors';
 
 
-
-
-
 export const CardContainer = styled.div`
-    width: 48%;
-    height:180px;
-    border: 3px solid ${color.white}; 
-    border-radius:20px;
-    margin:20px 0px;
-    
-a {
-    width: 100%;
-    height:180px;
-    display: flex;
-    justify-content:space-between;
-    align-items:center;
-    color:black;
+width: 48vw;
+height:120px;
+margin:15px;
+border-radius:14px;
+padding:10px;
+background-color:${color.white};
+display:flex;
+justify-content:center;
+align-items:center;
+.image {
+    width:130px ;
+    height:90%;
+    background-color:#2d95d2;
 }
-a:hover{
-    background-color:white;
+.info{
+    width:80vh;
 }
-    img {
-       height:170px;
-       width:60%;
-       border-radius:20px;
-       margin:5px;
-   }
-   .content{
-    width:40%;
-    display:flex;
-    flex-direction:column;
-    margin-top:-40px;
-   }
-   h6 {
-    background-color:red;
-       
-       font-size:22px;
-       font-weight:600;
-   }
-
+p {
+    line-height:0;
+}
+.item{
+    line-height:1;
+    font-weight:600;
+    font-size:15px;
+}
+.modelName{
+    font-size:12px;
+    font-weight:400;
+}
+.size {
+    font-weight:700;
+    font-size:18px;
+}
+.price{
+    position:relative;
+    left:85%;
+    font-weight:700;
+    font-size:18px;
+}
 `

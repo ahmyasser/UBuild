@@ -15,9 +15,9 @@ export const HeaderContainer = styled.header`
     align-items: center;
     background: ${props => props.Home ? "none" :color.bg };
     align-items: stretch;
-    border-bottom: 1px solid ${props => props.Home ? color.white :color.black}; 
+    border-bottom: 1px solid ${props => props.Home ? color.black :color.black}; 
     a {
-        color: ${props => props.Home ? color.white :color.black};
+        color: ${props => props.Home ? color.black :color.black};
         width:25%;       
         font-size: 14px; 
     }
@@ -33,7 +33,7 @@ export const HeaderLeft = styled.div`
     align-items: center;
 
     a {
-        border-right: 1px solid ${props => props.Home ? color.white :color.black}; 
+        border-right: 1px solid ${props => props.Home ? color.black :color.black}; 
         line-height: 2em;
         padding-top:0.5em;
         width: 25%;
@@ -79,7 +79,7 @@ export const HeaderRight = styled.div`
     justify-content: space-between;
     align-items: center;
     a {
-        border-left: 1px solid ${props => props.Home ? color.white :color.black}; 
+        border-left: 1px solid ${props => props.Home ? color.black :color.black}; 
         line-height: 10vh;
         width: 25%;
         text-align: center;
