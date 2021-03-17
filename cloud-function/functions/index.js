@@ -11,7 +11,7 @@ sgMail.setApiKey(SENDGRID_API_KEY);
 
 exports.firestoreEmail= functions.firestore
     .document("customizedModels/{customizedId}")
-    .onCreate((snap, event)=>{
+    .onCreate((_, event)=>{
       const customizedId = event.params.customizedId;
       console.log(customizedId);
       const db=admin.firestore();
