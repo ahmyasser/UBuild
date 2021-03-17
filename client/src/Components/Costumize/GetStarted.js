@@ -1,34 +1,80 @@
+import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import {db} from '../../firebaseConfig';
 
 import { 
   GetStartedContainer 
 } from "../../elements/screens/mainScreens/costumize/costumize";
 
-const GetStarted =({onClick}) =>{
+const GetStarted =({setCategory, category, setElements , setItem, setElement}) =>{
+  
+  const [categoryItems, setCategoryItems] = useState([])
+  const [itemsToElementsMap] = useState({}) 
+  
+  
+  
+  
+  useEffect(() => {
+    const fetchData =async()=>{
+      const response=db.collection(category);
+      const data= await response.get();
+      data.docs.forEach(item=> {
+        if(item.id === category){
+          (item.data().collections)? setCategoryItems(item.data().collections):setCategoryItems([]);
+        }
+        else{
+          //temp.push({[item.id]: item.data().collections})
+          itemsToElementsMap[item.id]=item.data().collections
+        }
+      }) 
+               
+    }
+    fetchData(); 
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category])
+  
+  const changeCategory =(category)=>{
+    setCategory(category);
+    setElements([]);
+    setElement('');
+  }
+  const onClick =(item)=>{
+    setElements(itemsToElementsMap[item]);
+    setItem(item);
+    setCategory(category);
+    setElement('');
+  };
 
-
-
+  const renderCategoriesItems = () => {
+    return categoryItems.map((item) => {
+    return (
+      <Link onClick={()=>onClick(item)} key={item} to='#'>{item}</Link>
+        )
+    })
+    
+  }
 return (
           <GetStartedContainer>
             
-            <div className="getStarted">
-              
+            <div className="getStarted">  
               <p className='title'> Get Started</p>
+              
               <div className='container'>
                 <div className='categories'>
-                  <Link to='#'>Economic</Link>
-                  <Link to='#'>Standard</Link>
-                  <Link to='#'>Luxury</Link>
+                  <Link className={category==='Economic'? 'active':''} 
+                    onClick = {()=>changeCategory('Economic') }
+                    to='#'>Economic</Link>
+                  <Link className={category==='Standard'? 'active':''} 
+                    onClick = {()=>changeCategory('Standard')}
+                    to='#'>Standard</Link>
+                  <Link className={category==='Luxury'? 'active':''} 
+                    onClick = {()=>changeCategory('Luxury')}
+                    to='#'>Luxury</Link>
                 </div>
+              
                 <div className='types'>
-                  <Link onClick={()=>onClick('kitchen')} to='#'>Kitchen</Link>
-                  <Link onClick={()=>onClick('Bathroom')} to='#'>Bathroom</Link>
-                  <Link onClick={()=>onClick('InteriorWalls')} to='#'>Interior</Link>
-                  <Link onClick={()=>onClick('Exterior')} to='#'>Exterior</Link>
-                  <Link onClick={()=>onClick('Flooring')} to='#'>Flooring</Link>
-                  <Link onClick={()=>onClick('Windows')} to='#'>Windows</Link>
-                  <Link onClick={()=>onClick('Utilities')} to='#'>Utility Packages</Link>
-                  <Link onClick={()=>onClick('KitchenCabinets')} to='#'>Kitchen Cabinets</Link>
+                  {renderCategoriesItems()}
                 </div>
               </div>
             </div>
