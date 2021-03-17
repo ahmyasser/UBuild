@@ -7,7 +7,6 @@ import Finances from './Screens/MainScreens/Finances';
 import Inspirations from './Screens/MainScreens/Inspirations';
 import Models from './Screens/MainScreens/Models';
 import Costumize from './Screens/MainScreens/Costumize';
-import Loading from './Components/Costumize/Loading';
 
 import Summary from './Screens/MainScreens/Summary';
 
@@ -15,28 +14,26 @@ import Story from './Screens/SecondaryScreens/Story';
 import Location from './Screens/SecondaryScreens/Location';
 import Contact from './Screens/SecondaryScreens/Contact';
 
-import './App.css'
-
-const  App = () => {
+function App() {
   return (
-    <BrowserRouter>
-        <Navbar/>
-        <Switch>
-            <Route path="/story" component={Story}/>    
-            <Route path="/locations" component={Location}/>    
-            <Route path="/Contact" component={Contact}/>    
+<BrowserRouter>
+    <Navbar/>
+    <Switch>
+    <Route path="/story" component={Story}/>    
+    <Route path="/locations" component={Location}/>    
+    <Route path="/Contact" component={Contact}/>    
 
 
-            <Route path="/load/:id" component={Loading}/>
-            <Route path="/customize" component={Costumize}/>
-            <Route path="/Models" component={Models}/>    
-            <Route path="/Summary" component={Summary}/>    
-            <Route path="/Models" component={Models}/>    
-            <Route path="/Inspirations" component={Inspirations}/>    
-            <Route path="/Finances" component={Finances}/>    
-            <Route path="/" exact component={Home}/>
-        </Switch>
-        <Footer />    
+    <Route path="/customize" component={Costumize}/>
+    <Route path="/Models" component={Models}/>    
+    <Route path="/Summary" component={Summary}/>    
+    <Route path="/Models" component={Models}/>    
+    <Route path="/Inspirations" component={Inspirations}/>    
+    <Route path="/Finances" component={Finances}/>    
+    <Route path="/" exact component={Home}/>
+    
+    </Switch>
+    <Footer />    
     </BrowserRouter>
     
   );

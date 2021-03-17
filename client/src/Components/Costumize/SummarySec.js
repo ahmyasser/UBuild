@@ -2,20 +2,30 @@
 // import { RiArrowDropRightLine } //from 'react-icons/ri'
 import SummaryCard from "../Cards/SummaryCard";
 
-import { SummaryContainer } from "../../elements/screens/mainScreens/costumize/costumize";
+ import { SummaryContainer } from "../../elements/screens/mainScreens/costumize/costumize";
 
-const SummarySec =({cart}) =>{
+const SummarySec =({elements}) =>{
 
-  const renderData=()=> {
-  
-    return Object.entries(cart).map(([key, value]) => {
-       return (<SummaryCard cartElemnt={value} key={key} type={key}/>)
-    })
- }
+//   const renderData=()=> {
+//     return elements.map((element) => {
+//        return (
+//         <Link to='#'key={element.id}>{element.title} 
+//                     <RiArrowDropRightLine size={40}/>
+//         </Link>
+    
+//        )
+//     })
+//  }
 
   return (
           <SummaryContainer>
-            {renderData()}
+            
+            <SummaryCard />
+            <SummaryCard />
+            <SummaryCard />
+            <SummaryCard />
+            <SummaryCard />
+            
           </SummaryContainer>
   );
 }

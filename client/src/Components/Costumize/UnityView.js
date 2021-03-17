@@ -1,64 +1,50 @@
-import React, {useEffect} from "react";
+import React, {useState} from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
 import { UnityContainer } from '../../elements/screens/mainScreens/costumize/costumize'
-import { storage } from "../../firebaseConfig";
 
-const Files =localStorage.getItem('model')?JSON.parse(localStorage.getItem('model')):'';
+const loader= './Build/28FT.loader.js'
 
-  const unityContext = new UnityContext({
-    loaderUrl: './Build1/40FT GN.loader.js' ||Files.loaderUrl,
-    dataUrl: './Build1/40FT GN.data' ||Files.dataUrl,
-    frameworkUrl:'./Build1/40FT GN.framework.js' ||Files.frameworkUrl,
-    codeUrl: './Build1/40FT GN.wasm' ||Files.codeUrl,
-    streamingAssetsUrl: "StreamingAssets",
-    companyName: "DefaultCompany",
-    productName: "TinyHome",
-    productVersion: "0.1"
+const unityContext = new UnityContext({
+  loaderUrl: loader,
+  dataUrl: "./Build/28FT.data",
+  frameworkUrl: "./Build/28FT.framework.js",
+  codeUrl: "./Build/28FT.wasm",
+  streamingAssetsUrl: "StreamingAssets",
+  companyName: "DefaultCompany",
+  productName: "TinyHome",
+  productVersion: "0.1"
+});
+
+
+
+
+const onClick = ()=> {
+  unityContext.send(
+    'Canvas',
+     'ChangeAppearance',
+      '{"itemType":"Interior Walls","itemID":"123","material":"Timeless"}'
+  );
+}
+
+function UnityView() {
+
+  const [progression, setProgression] = useState(0);
+  unityContext.on("progress", progress => {
+    // Now we can use the progression to for example
+    // display it on our React app.
+    setProgression(progress);
   });
-
-
-const UnityView = ({selectedData, progression, setProgression}) => {
   
-  
-  
-  unityContext.on("progress", progress => { setProgression(progress);});
-  //const savedCart =localStorage.getItem('savedCart')?JSON.parse(localStorage.getItem('savedCart')):'';
-
- 
-
-    useEffect(() => {
-    const sendToUnity = async ()=> {
-      if(selectedData.NormalMap&&
-        selectedData.NormalMap!=='None' &&
-        selectedData.MainTexture&&
-        selectedData.MainTexture!=='None' &&         
-        selectedData.NormalMap.length <90){
-        const normalMap = await storage.ref(`Textures/${selectedData.NormalMap}`).getDownloadURL();    
-        const mainTexture= await storage.ref(`Textures/${selectedData.MainTexture}`).getDownloadURL();    
-        selectedData.NormalMap1=selectedData.NormalMap;
-        selectedData.MainTexture1=selectedData.MainTexture;
-        selectedData.NormalMap=normalMap;
-        selectedData.MainTexture=mainTexture;
-      }
-      unityContext.send(
-        'Canvas',
-        'ChangeMaterial',
-        JSON.stringify(selectedData)
-      );
-    }
-    sendToUnity();
-  }, [selectedData])
-  
-
-
   return (
     <UnityContainer>
-      { (progression<1)&& `Loading ${ Math.floor(progression * 100)} percent...`}    
+      <button onClick={()=>onClick()}>Interior Walls</button>
+      { (progression<1)&& `Loading ${ Math.floor(progression * 100)} percent...`}
+      
+      
      <Unity unityContext={unityContext} width='100%' height='74vh' className="my-unity-app" />
      </UnityContainer>
   );
 }
 
 export default UnityView;
-

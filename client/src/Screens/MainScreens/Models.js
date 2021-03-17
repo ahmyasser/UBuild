@@ -1,3 +1,4 @@
+//import {Link} from 'react-router-dom';
 
 import {
   ModelsScreenContainer,
@@ -5,37 +6,34 @@ import {
   
 } from '../../elements/screens/mainScreens/models';
 import {useEffect, useState} from 'react';
-import {db} from "../../firebaseConfig";
+import Axios from "axios";
 import ModelCard from '../../Components/Cards/ModelCard';
 const Models= ()=>{
 
-  const [models, setModels] = useState([]);
-  
-  const [loading, setLoading] = useState(true);
+const [models, setModels] = useState([]);
 
+const getModels = async () =>{
+  const {data} = await Axios.get(`https://tinyhomes-fakeserver.herokuapp.com/models`);
+  setModels(data)
+}
 
 
 useEffect(() => {
-  const getModels = async () =>{
-    const response= db.collection('models');
-    const data= await response.get();
-    setModels(data.docs.map(doc=>({...doc.data()})))
-   }   
   getModels();
-  setLoading(false);
 }, [])
 
 const renderData=()=> {
   return models.map((model) => {
      return (
-        <ModelCard obj={model} key={model.id}/>
+        <ModelCard obj={model} />
       )
   })
 }
 
 
-return (<>
-  {!loading&&<ModelsScreenContainer>
+return (
+  <>
+  <ModelsScreenContainer>
     <div className='title'>
       <p>Select & Build your Model</p> 
       <small>Browse 10+ Models & Customize to your own preferences</small>
@@ -46,8 +44,9 @@ return (<>
       </div>
     </ModelsContainer>
   
-  </ModelsScreenContainer>}
+  </ModelsScreenContainer>
   
-  </>) ;
+  </>
+    ) ;
 }
 export default Models;

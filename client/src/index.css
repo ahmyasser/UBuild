@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'Exo 2';
   src: local('Exo 2'), url(./Assets/Exo_2/static/Exo2-Thin.ttf) format('truetype');
@@ -52,6 +51,7 @@
   src: local('Exo 2'), url(./Assets/Exo_2/static/Exo2-Black.ttf) format('truetype');
   font-weight: 900;
 }
+
 
 body {
   margin: 0;
