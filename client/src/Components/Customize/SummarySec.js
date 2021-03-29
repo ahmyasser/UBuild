@@ -2,7 +2,7 @@
 // import { RiArrowDropRightLine } //from 'react-icons/ri'
 import SummaryCard from "../Cards/SummaryCard";
 
-import { SummaryContainer } from "../../elements/screens/mainScreens/costumize/costumize";
+import { SummaryContainer } from "../../elements/screens/mainScreens/customize/customize";
 
 const SummarySec =({cart}) =>{
 

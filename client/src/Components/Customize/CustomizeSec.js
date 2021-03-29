@@ -4,10 +4,10 @@ import { RiArrowDropRightLine } from 'react-icons/ri'
 import {db, auth} from '../../firebaseConfig'
 import MaterialCard from '../Cards/MaterialCard' 
 import { 
-  CustomizeContainer 
-} from "../../elements/screens/mainScreens/costumize/costumize";
+  CustomizeSecContainer 
+} from "../../elements/screens/mainScreens/customize/customize";
 
-const Customize =({elements, category, item, setSelectedData, element, setElement}) =>{
+const CustomizeSec =({elements, category, item, setSelectedData, element, setElement}) =>{
   const [data, setData] = useState([]);
   const onClick= async (element)=>{
     try {  
@@ -48,21 +48,21 @@ const Customize =({elements, category, item, setSelectedData, element, setElemen
  
 
   return (
-          <CustomizeContainer>
+    <CustomizeSecContainer>
             
               
-          { elements.length>0 && <p className='title'> Customize</p>}
-          {!element&& <div className="Customize">
-                {renderElements()}
-              </div>}
-              { data.length!==0 && element&&<div id="CustomizeData">
-              <Link to='#' id="CustomizeElement" onClick={()=>setElement('')} key={element}>{element} 
-              </Link>
-                {renderData()}
-              </div>}
-            
-          </CustomizeContainer>
+    { elements.length>0 && <p className='title'> Customize</p>}
+    {!element&& <div className="Customize">
+          {renderElements()}
+        </div>}
+        { data.length!==0 && element&&<div id="CustomizeData">
+        <Link to='#' id="CustomizeElement" onClick={()=>setElement('')} key={element}>{element} 
+        </Link>
+          {renderData()}
+        </div>}
+      
+    </CustomizeSecContainer>
   );
 }
 
-export default Customize;
+export default CustomizeSec;

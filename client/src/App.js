@@ -6,8 +6,8 @@ import Home from './Screens/MainScreens/Home';
 import Finances from './Screens/MainScreens/Finances';
 import Inspirations from './Screens/MainScreens/Inspirations';
 import Models from './Screens/MainScreens/Models';
-import Costumize from './Screens/MainScreens/Costumize';
-import Loading from './Components/Costumize/Loading';
+import Customize from './Screens/MainScreens/Customize';
+import Loading from './Components/Customize/Loading';
 
 import Summary from './Screens/MainScreens/Summary';
 
@@ -30,7 +30,7 @@ const  App = () => {
             <Route path="/Contact" component={Contact}/>    
 
             <Route path="/load/:id" ><Loading setModel={setModel}/></Route>
-            <Route path="/customize" ><Costumize model={model} setModel={setModel}/></Route>
+            <Route path="/customize" ><Customize model={model} setModel={setModel}/></Route>
             <Route path="/models" ><Models setModel={setModel}/></Route>    
             
             <Route path="/Summary" component={Summary}/>    

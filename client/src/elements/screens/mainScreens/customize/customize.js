@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import * as color from '../../../common/colors';
 
 
-export const CostumizeContainer = styled.div`
+export const CustomizeContainer = styled.div`
     width: 100%;
     height:auto;
     min-height:150vh;
@@ -42,7 +42,7 @@ width: 74%;
        
  `
 
-export const CostumizeSection = styled.div`
+export const CustomizeSection = styled.div`
     height:92vh;
     width:23%;
     a {
@@ -104,7 +104,7 @@ export const GetStartedContainer = styled.div`
 
 `
 
-export const CustomizeContainer = styled.div`
+export const CustomizeSecContainer = styled.div`
     overflow:visible; 
     a {
         text-align:center;

@@ -1,20 +1,20 @@
 import React, {useState, useEffect} from "react";
 import {Link, useHistory} from 'react-router-dom';
-import UnityView from "../../Components/Costumize/UnityView";
-import GetStarted from "../../Components/Costumize/GetStarted";
-import Customize from "../../Components/Costumize/Customize";
-import SummarySec from "../../Components/Costumize/SummarySec";
+import UnityView from "../../Components/Customize/UnityView";
+import GetStarted from "../../Components/Customize/GetStarted";
+import CustomizeSec from "../../Components/Customize/CustomizeSec";
+import SummarySec from "../../Components/Customize/SummarySec";
 
 
 import { 
-  CostumizeContainer,
+  CustomizeContainer,
   Header,
   MidSection,
-  CostumizeSection,
+  CustomizeSection,
   AddToCart 
-} from "../../elements/screens/mainScreens/costumize/costumize";
+} from "../../elements/screens/mainScreens/customize/customize";
 
-const Costumize = ({setModel,model}) => {
+const Customize = ({setModel,model}) => {
   const history = useHistory()
   const [category, setCategory] = useState('Economic');
   const [elements, setElements] = useState([]);
@@ -71,7 +71,7 @@ const Costumize = ({setModel,model}) => {
 }
 
 return (
-    <CostumizeContainer>
+    <CustomizeContainer>
       {model && <div className="wrapper">
         <Header>
           <p>Welcome to <span>{model.name} </span></p>
@@ -84,20 +84,20 @@ return (
             selectedData ={selectedData} 
             progression={progression} 
             setProgression={setProgression}/>                   
-          <CostumizeSection>
+          <CustomizeSection>
           <GetStarted 
             setElement={setElement} 
             setElements={setElements} 
             setItem={setItem} 
             setCategory={setCategory} 
             category={category} />
-          <Customize element={element} 
+          <CustomizeSec element={element} 
             setElement={setElement} 
             elements={elements} 
             category={category} 
             item={item} 
             setSelectedData={setSelectedData} />
-          </CostumizeSection >
+          </CustomizeSection >
         </MidSection>
         <SummarySec cart={cart}/>
          <AddToCart>
@@ -105,10 +105,10 @@ return (
           {(totalCost!==0)&&<p>Total $ {numberWithCommas(totalCost)}</p>}
         </AddToCart>
       </div>}
-     </CostumizeContainer>
+     </CustomizeContainer>
 
 
   );
 }
 
-export default Costumize;
+export default Customize;

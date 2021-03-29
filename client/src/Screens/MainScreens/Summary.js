@@ -2,7 +2,7 @@ import {useHistory} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import { SummaryContainer } from "../../elements/screens/mainScreens/summary";
 
-import SummarySec from '../../Components/Costumize/SummarySec';
+import SummarySec from '../../Components/Customize/SummarySec';
 import CheckoutForm from '../../Components/Summary/CheckoutForm';
 import ModelSummary from '../../Components/Summary/ModelSummary';
 import OrderNow from '../../Components/Summary/OrderNow';

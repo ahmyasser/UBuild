@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
 
-import { UnityContainer } from '../../elements/screens/mainScreens/costumize/costumize'
+import { UnityContainer } from '../../elements/screens/mainScreens/customize/customize'
 import { storage } from "../../firebaseConfig";
 
 

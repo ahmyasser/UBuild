@@ -4,7 +4,7 @@ import {db, auth} from '../../firebaseConfig';
 
 import { 
   GetStartedContainer 
-} from "../../elements/screens/mainScreens/costumize/costumize";
+} from "../../elements/screens/mainScreens/customize/customize";
 
 const GetStarted =({setCategory, category, setElements , setItem, setElement}) =>{
   
