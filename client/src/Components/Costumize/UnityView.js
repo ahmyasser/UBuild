@@ -4,30 +4,38 @@ import Unity, { UnityContext } from "react-unity-webgl";
 import { UnityContainer } from '../../elements/screens/mainScreens/costumize/costumize'
 import { storage } from "../../firebaseConfig";
 
-const Files =localStorage.getItem('model')?JSON.parse(localStorage.getItem('model')):'';
 
-  const unityContext = new UnityContext({
-    loaderUrl: './Build1/40FT GN.loader.js' ||Files.loaderUrl,
-    dataUrl: './Build1/40FT GN.data' ||Files.dataUrl,
-    frameworkUrl:'./Build1/40FT GN.framework.js' ||Files.frameworkUrl,
-    codeUrl: './Build1/40FT GN.wasm' ||Files.codeUrl,
+var unityContext = new UnityContext();
+
+const UnityView = ({selectedData, progression, setProgression, model}) => {
+
+  unityContext.unityConfig={
+    loaderUrl:
+      model.loaderUrl 
+    //'./Build1/40FT GN.loader.js'
+    ,
+    dataUrl:
+      model.dataUrl
+    //'./Build1/40FT GN.data'
+    ,
+    frameworkUrl:
+      model.frameworkUrl
+    //'./Build1/40FT GN.framework.js'
+    ,
+    codeUrl:
+      model.codeUrl
+    //'./Build1/40FT GN.wasm'
+    ,
     streamingAssetsUrl: "StreamingAssets",
     companyName: "DefaultCompany",
     productName: "TinyHome",
     productVersion: "0.1"
-  });
-
-
-const UnityView = ({selectedData, progression, setProgression}) => {
-  
-  
+    
+  }
   
   unityContext.on("progress", progress => { setProgression(progress);});
-  //const savedCart =localStorage.getItem('savedCart')?JSON.parse(localStorage.getItem('savedCart')):'';
-
- 
-
-    useEffect(() => {
+  
+  useEffect(() => {
     const sendToUnity = async ()=> {
       if(selectedData.NormalMap&&
         selectedData.NormalMap!=='None' &&
@@ -48,6 +56,8 @@ const UnityView = ({selectedData, progression, setProgression}) => {
       );
     }
     sendToUnity();
+  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedData])
   
 

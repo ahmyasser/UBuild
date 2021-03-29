@@ -13,7 +13,7 @@ export const HeaderContainer = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: ${props => props.Home ? "none" :color.bg };
+    background: ${props => props.Home ? color.bg :color.bg };
     align-items: stretch;
     border-bottom: 1px solid ${props => props.Home ? color.black :color.black}; 
     a {
@@ -63,8 +63,8 @@ export const HeaderMid = styled.div`
     
     a {
         height:110%;
-        background-color: ${props=> props.Home? color.bg: 'none'};
-        border:  ${props => props.Home ? 'none' :`1px solid ${color.white}`}; 
+        background-color: ${props=> props.Home? 'none': 'none'};
+        border:  ${props => props.Home ? `1px solid ${color.white}` :`1px solid ${color.white}`}; 
         width:170px;
         display: flex;
         align-items: center;

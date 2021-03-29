@@ -19,10 +19,10 @@ const Summary  = () => {
   const [id, setId]= useState('');
   
   useEffect(() => {
-    if (!model) { 
+    if (!model|| !totalCost) { 
         history.push("/models");
     }   
-  }, [model, history])    
+  }, [model, history, totalCost])    
   const numberWithCommas=(x)=> {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }

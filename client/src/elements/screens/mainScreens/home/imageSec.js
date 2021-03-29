@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import * as color from '../../../common/colors';
 
-import imgsec from '../../../../Assets/Images/landing.png'
+import imgsec from '../../../../Assets/Images/lb.png'
 
 export const ImageSecContainer = styled.section`
 width: 100%;

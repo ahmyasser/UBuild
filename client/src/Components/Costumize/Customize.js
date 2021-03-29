@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import { useState } from "react";
 import { RiArrowDropRightLine } from 'react-icons/ri'
-import {db} from '../../firebaseConfig'
+import {db, auth} from '../../firebaseConfig'
 import MaterialCard from '../Cards/MaterialCard' 
 import { 
   CustomizeContainer 
@@ -10,10 +10,15 @@ import {
 const Customize =({elements, category, item, setSelectedData, element, setElement}) =>{
   const [data, setData] = useState([]);
   const onClick= async (element)=>{
-      const response=db.collection(category).doc(item).collection(element);
-      const resData= await response.get();
-      setElement(element)
-      setData(resData.docs.map(doc=>({...doc.data()})))
+    try {  
+        await auth.signInAnonymously()
+        const response=db.collection(category).doc(item).collection(element);
+        const resData= await response.get();
+        setElement(element)
+        setData(resData.docs.map(doc=>({...doc.data()})))
+      } catch(error) {
+        console.log(error);
+      }
     } 
   
 

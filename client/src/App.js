@@ -16,8 +16,11 @@ import Location from './Screens/SecondaryScreens/Location';
 import Contact from './Screens/SecondaryScreens/Contact';
 
 import './App.css'
+import {  useState } from 'react';
 
 const  App = () => {
+  const [model, setModel] = useState('');
+ 
   return (
     <BrowserRouter>
         <Navbar/>
@@ -26,12 +29,11 @@ const  App = () => {
             <Route path="/locations" component={Location}/>    
             <Route path="/Contact" component={Contact}/>    
 
-
-            <Route path="/load/:id" component={Loading}/>
-            <Route path="/customize" component={Costumize}/>
-            <Route path="/Models" component={Models}/>    
+            <Route path="/load/:id" ><Loading setModel={setModel}/></Route>
+            <Route path="/customize" ><Costumize model={model} setModel={setModel}/></Route>
+            <Route path="/models" ><Models setModel={setModel}/></Route>    
+            
             <Route path="/Summary" component={Summary}/>    
-            <Route path="/Models" component={Models}/>    
             <Route path="/Inspirations" component={Inspirations}/>    
             <Route path="/Finances" component={Finances}/>    
             <Route path="/" exact component={Home}/>

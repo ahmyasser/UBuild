@@ -2,39 +2,50 @@ import { useParams,
          useHistory 
     }  from "react-router-dom";
 import {useEffect} from 'react';
-import {db} from '../../firebaseConfig';
+import {db, auth} from '../../firebaseConfig';
 
   
-const Loading = () =>{
+const Loading = ({setModel}) =>{
     let { id } = useParams();
-     const history = useHistory();
+    const history = useHistory();
+
     useEffect(() => {
         const fetchData =async()=>{
+        try {  
+            await auth.signInAnonymously()   
             var docRef = db.collection("customizedModels").doc(id);
             docRef.get().then((doc) => {
                 if (doc.exists) {
+                    setModel(JSON.parse(doc.data().model))
                     localStorage.setItem('savedCart', doc.data().cart);
                     localStorage.setItem('model', doc.data().model);
                 } else {
-                    // doc.data() will be undefined in this case
                     console.log("No such document!");
                 }
             }).catch((error) => {
                 console.log("Error getting document:", error);
+                history.push('/models');
             });
-           
-            history.push('/customize');
+        }catch(error){
+            console.log(error);
+            history.push('/models');
         }
-        fetchData();  
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [])
+        history.push('/customize');
+        }
+        fetchData();
+      }, [history, id, setModel])
       
 
-return <><h1>Loading</h1>
- <h1>Loading</h1>
- <h1>Loading</h1>
+return <>
+ <h1>-</h1>
+ <h1>-</h1>
+ <h1>-</h1>
+
+ <h1>-</h1>
+ <h1>-</h1>
+ <h1>-</h1>
  <h1>Loading {id}</h1>
- <h1>Loading</h1></>
+ </>
 }
 
 export default Loading;

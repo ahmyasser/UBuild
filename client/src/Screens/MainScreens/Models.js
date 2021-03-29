@@ -5,22 +5,26 @@ import {
   
 } from '../../elements/screens/mainScreens/models';
 import {useEffect, useState} from 'react';
-import {db} from "../../firebaseConfig";
+import {db, auth} from "../../firebaseConfig";
 import ModelCard from '../../Components/Cards/ModelCard';
-const Models= ()=>{
+
+const Models= ({setModel})=>{
 
   const [models, setModels] = useState([]);
-  
   const [loading, setLoading] = useState(true);
 
-
-
 useEffect(() => {
-  const getModels = async () =>{
-    const response= db.collection('models');
-    const data= await response.get();
-    setModels(data.docs.map(doc=>({...doc.data()})))
-   }   
+  localStorage.removeItem('model');
+    const getModels = async () =>{
+    try {  
+      await auth.signInAnonymously()  
+      const response= db.collection('models');
+      const data= await response.get();
+      setModels(data.docs.map(doc=>({...doc.data()})))
+    } catch (error){
+        console.log(error);
+    }
+  }
   getModels();
   setLoading(false);
 }, [])
@@ -28,7 +32,7 @@ useEffect(() => {
 const renderData=()=> {
   return models.map((model) => {
      return (
-        <ModelCard obj={model} key={model.id}/>
+        <ModelCard obj={model} key={model.id} setModel={setModel}/>
       )
   })
 }

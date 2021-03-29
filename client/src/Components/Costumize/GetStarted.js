@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import {db} from '../../firebaseConfig';
+import {db, auth} from '../../firebaseConfig';
 
 import { 
   GetStartedContainer 
@@ -16,6 +16,9 @@ const GetStarted =({setCategory, category, setElements , setItem, setElement}) =
   
   useEffect(() => {
     const fetchData =async()=>{
+      try {  
+        await auth.signInAnonymously()
+   
       const response=db.collection(category);
       const data= await response.get();
       data.docs.forEach(item=> {
@@ -27,6 +30,9 @@ const GetStarted =({setCategory, category, setElements , setItem, setElement}) =
           itemsToElementsMap[item.id]=item.data().collections
         }
       }) 
+    } catch(error){
+        console.log(error);
+      }
                
     }
     fetchData(); 

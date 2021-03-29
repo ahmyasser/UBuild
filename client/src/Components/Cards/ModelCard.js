@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {storage} from "../../firebaseConfig";
 import {
     ModelCardContainer
@@ -7,7 +7,8 @@ import {
     
  
     
- const ModelCard  = ({obj}) => {
+ const ModelCard  = ({obj, setModel}) => {
+    const history = useHistory();
     const [url, setUrl] = useState('')
     const [loading, setLoading] = useState(true)
     useEffect(() => {
@@ -30,23 +31,26 @@ import {
     
     const saveModel = async () =>{
             try {
-                const codeUrl= await storage.ref(`Build/16FT.wasm`).getDownloadURL();
-                const frameworkUrl= await storage.ref(`Build/16FT.framework.js`).getDownloadURL();
-                const loaderUrl= await storage.ref(`Build/16FT.loader.js`).getDownloadURL();
-                const dataUrl= await storage.ref(`Build/16FT.data`).getDownloadURL();
+                const codeUrl= await storage.ref(`Build/${obj.build}.wasm`).getDownloadURL();
+                const frameworkUrl= await storage.ref(`Build/${obj.build}.framework.js`).getDownloadURL();
+                const loaderUrl= await storage.ref(`Build/${obj.build}.loader.js`).getDownloadURL();
+                const dataUrl= await storage.ref(`Build/${obj.build}.data`).getDownloadURL();
                 obj.codeUrl= codeUrl;
                 obj.frameworkUrl= frameworkUrl;
                 obj.dataUrl= dataUrl;
                 obj.loaderUrl= loaderUrl;
-                localStorage.setItem('model',JSON.stringify(obj) )
+                setModel(obj)
             } catch (error) {
                 console.log(error)
+                localStorage.setItem('model',JSON.stringify(obj) )
             }
-          
+            setModel(obj)
+            localStorage.setItem('model',JSON.stringify(obj) )
+            history.push('/customize')
           
     }
      return <>{!loading&&<ModelCardContainer>
-        <Link onClick={()=>saveModel()} to='/customize' > 
+        <Link onClick={()=>saveModel()} to='#' > 
             <img src={url} alt="ModelCard" />
             <div className='content'>
                 <h6>{obj.name}</h6>

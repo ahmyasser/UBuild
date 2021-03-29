@@ -51,7 +51,8 @@ export const ConceptPic = styled.div`
             float:right;
             margin-top:30px;
             padding:10px;
-            height:280px;
+            width:210px;
+            height:230px;
             border:1px solid black;
           }      
         }
